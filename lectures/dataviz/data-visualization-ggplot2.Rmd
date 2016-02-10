@@ -90,7 +90,7 @@ To install the `gapminder` data set
 
 ```{r, eval = FALSE}
 library(devtools)
-install_github("jennybc/gapminder")
+install_github("jennybc/gapminder", force=TRUE)
 ```
 
 
@@ -404,11 +404,7 @@ p2 + geom_boxplot() + scale_y_log10()
 ```
 
 ```{r}
-<<<<<<< HEAD:lectures/dataviz/data_visualization_ggplot2.Rmd
-p2 <- ggplot(filter(gapminder, year%in%years  & country!="Kuwait"), 
-=======
 p2 <- ggplot(filter(gapminder, year%in%years & country!="Kuwait"), 
->>>>>>> 81e32bcdb100b672690593b4f01001df58e81a53:lectures/dataviz/data-visualization-ggplot2.Rmd
             aes(continent, y=gdpPercap)) 
 p2 + geom_boxplot(aes(fill=continent)) + facet_grid(.~year)+scale_y_log10()
 ```
