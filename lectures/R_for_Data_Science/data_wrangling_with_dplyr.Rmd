@@ -114,8 +114,9 @@ filter the rows for mammals that sleep a total of more than 16 hours
 and have a body weight of greater than 1 kilogram
 
 ```{r}
-## Provide your code here
-
+msleep %>% 
+  select(-c(genus:conservation)) %>%
+  filter(sleep_total>=16, bodywt >= 1)
 ```
 
 #### Assessment
@@ -125,8 +126,11 @@ rem sleep to total amount of sleep and create boxplots of the
 `rem_proportion` column split and colored by the `vore` column. 
 Create labels for the `x` and `y` axis.  
 ```{r}
-## Provide your code here
-
+msleep %>%
+  mutate(rem_proportion=sleep_rem/sleep_total) %>%
+  ggplot(aes(x=vore, y=rem_proportion, fill=vore)) +
+    geom_boxplot() + xlab("Type of diet") +
+    ylab("Proportio") + labs(title="Proportion of rem sleep")
 ```
 
 
@@ -143,8 +147,11 @@ Hint: Look at the `slice()` help file to filter for rows by numerical
 position. 
 
 ```{r}
-## Provide your code here
-
+msleep %>%
+  select(starts_with("sl"), ends_with("wt")) %>%
+  mutate(rem_proportion=sleep_rem/sleep_total,
+         bodywt_grams=bodywt*1000) %>%
+  slice(20:30)
 ```
 
 
@@ -167,8 +174,9 @@ for the `sleep_rem` in a decreasing order.
 Hint: look at the `?arrange` help file for the `desc()` option.
 
 ```{r}
-## Provide your code here
-
+msleep %>%
+  select(contains("sleep")) %>%
+  arrange(desc(sleep_rem))
 ```
 
 #### Assessment
@@ -178,8 +186,10 @@ arrange the rows in the `sleep_total` column in a descending order, and
 filter the rows for mammals that sleep for a total of 16 or more hours. 
 
 ```{r}
-## Provide your code here
-
+msleep %>%
+  select(name, order, sleep_total) %>%
+  arrange(desc(sleep_total)) %>%
+  filter(sleep_total >= 16)
 ```
 
 
@@ -209,8 +219,9 @@ average sleep, the minimum and maximum amount of sleep, and the
 total number of mammals. 
 
 ```{r}
-## Provide your code here
-
+msleep %>% 
+    summarize(avg_sleep = mean(sleep_total), min_sleep=min(sleep_total),
+              max_sleep = max(sleep_total), total = n())
 ```
 
     
@@ -234,8 +245,8 @@ weights.
 ```{r}
 msleep %>% 
     filter(vore == "carni") %>% 
-    summarize("bodywt_sd" = mean(bodywt), 
-              "brainwt_sd" = mean(brainwt, na.rm = TRUE))
+    summarize("bodywt_mean" = mean(bodywt), 
+              "brainwt_mean" = mean(brainwt, na.rm = TRUE))
 ```
 
 We could repeat this for each factor in `vore`, which is a bit teadious.
@@ -249,8 +260,8 @@ statistics for each level in `vore`.)
 ```{r}
 msleep %>% 
     group_by(vore) %>%
-    summarize("bodywt_sd" = mean(bodywt), 
-              "brainwt_sd" = mean(brainwt, na.rm = TRUE))
+    summarize("bodywt_mean" = mean(bodywt), 
+              "brainwt_mean" = mean(brainwt, na.rm = TRUE))
 ```
 
 
@@ -262,8 +273,10 @@ the minimum and maximum amount of sleep, and the total number of mammals
 in each order. 
 
 ```{r}
-## Provide your code here
-
+msleep %>% 
+    group_by(order) %>%
+    summarize(avg_sleep = mean(sleep_total), min_sleep=min(sleep_total),
+              max_sleep = max(sleep_total), total = n())
 ```
 
 

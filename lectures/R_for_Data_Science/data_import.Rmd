@@ -53,6 +53,7 @@ default. You do not want this. You want your file to be named
 Once you have this file in your working directory, then you can simply read it in like this:
 
 ```{r,eval=FALSE}
+setwd("/Users/jccheng/graniteH/personal/Harvard_DataScience/CSCI E-107/2016_data/")
 dat <- read.csv("bio260_heights.csv")
 ```
 
