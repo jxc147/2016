@@ -223,11 +223,6 @@ average sleep, the minimum and maximum amount of sleep, and the
 total number of mammals. 
 
 ```{r}
-<<<<<<< HEAD
-msleep %>% 
-    summarize(avg_sleep = mean(sleep_total), min_sleep=min(sleep_total),
-              max_sleep = max(sleep_total), total = n())
-=======
 ## Provide your code here
 
 msleep %>% 
@@ -235,7 +230,6 @@ msleep %>%
               min_sleep = min(sleep_total),
               max_sleep = max(sleep_total),
               total = n())
->>>>>>> e926099e2c83bc34291c857fc7490521d2afc8d5
 ```
 
     
@@ -287,21 +281,13 @@ the minimum and maximum amount of sleep, and the total number of mammals
 in each order. 
 
 ```{r}
-<<<<<<< HEAD
-msleep %>% 
-    group_by(order) %>%
-    summarize(avg_sleep = mean(sleep_total), min_sleep=min(sleep_total),
-              max_sleep = max(sleep_total), total = n())
-=======
 ## Provide your code here
-
 msleep %>% 
     group_by(order) %>%
     summarise(avg_sleep = mean(sleep_total), 
               min_sleep = min(sleep_total), 
               max_sleep = max(sleep_total),
               total = n())
->>>>>>> e926099e2c83bc34291c857fc7490521d2afc8d5
 ```
 
 
