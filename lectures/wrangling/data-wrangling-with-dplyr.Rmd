@@ -389,8 +389,7 @@ Try applying the `semi_join()` function with `x=movies` and `y=oscars`.
 What is the difference? 
 
 ```{r}
-## Provide your code here 
-
+semi_join(movies, oscars, by = "movie")
 ```
 
 
