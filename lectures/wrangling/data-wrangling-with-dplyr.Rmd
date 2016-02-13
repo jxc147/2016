@@ -389,6 +389,11 @@ Try applying the `semi_join()` function with `x=movies` and `y=oscars`.
 What is the difference? 
 
 ```{r}
+<<<<<<< HEAD
+=======
+## Provide your code here 
+
+>>>>>>> 72f99b23b17fb4dc8d94578d6e18fbf29e394e09
 semi_join(movies, oscars, by = "movie")
 ```
 
@@ -404,6 +409,9 @@ Hint: read the help file for `left_join()` or `right_join()`.
 ```{r}
 ## Provide your code here
 
+left_join(oscars, movies, by = "movie")
+## or 
+right_join(movies, oscars, by = "movie")
 ```
 
 Why are there NAs? 
@@ -418,6 +426,9 @@ set and all columns in both the `oscars` and `movies` columns.
 ```{r}
 ## Provide your code here
 
+right_join(oscars, movies, by = "movie")
+## or 
+left_join(movies, oscars, by = "movie")
 ```
 
 
@@ -442,6 +453,7 @@ Hint: Read the help file for `anti_join()`.
 ```{r}
 ## Provide your code here
 
+anti_join(oscars, movies, by = "movie")
 ```
 
 
