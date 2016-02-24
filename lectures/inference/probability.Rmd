@@ -251,6 +251,9 @@ Assessment: Use `sample` to randomly select 50 birthdays. Check if they are uniq
 
 ```{r}
 ##your code here
+bdays <- sample(1:365, 50, replace = TRUE)
+sum(duplicated(bdays))
+table(table(bdays))
 ```
 
 ```{r birthday-problem}
