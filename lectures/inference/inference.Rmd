@@ -293,6 +293,7 @@ sigma/sqrt(N)
 2. Confirm that the distribution is approximately normal with mean 0 and standard deviation $\sigma / N$
 
 ```{r}
+qqnorm(error)
 z <- error/ (sigma / sqrt(N)  )
 qqnorm(z)
 abline(0,1)
